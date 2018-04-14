@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Book</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="bottom center">
+        <div class="file-select">
+            <input type="text" id="input-file" value="/bar.txt" title="Absolute path to the input file on server"/>
+            <a class="btn" href="" id="start">Let's rock!</a>
+            <a class="btn green" href="" id="trace">Trace</a>
+        </div>
+    </div>
+    <div class="left">
+        <div class="center">
+            <h2>Order Book:</h2>
+        </div>
+        <div class="display-block" id="orderBook">
+        </div>
+        <div class="center">
+            <h2>Commands:</h2>
+        </div>
+        <div class="display-block" id="commands">
+        </div>
+    </div>
+    <div class="right">
+        <div class="center">
+            <h2>Output:</h2>
+        </div>
+        <div class="display-block" id="output">
+        </div>
+    </div>
+</div>
+
+<script src="custom.js"></script>
+</body>
+</html>
