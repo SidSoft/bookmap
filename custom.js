@@ -68,16 +68,13 @@ u = args => { // Implements "u" command for manipulating Order Book data
     args[1] = parseInt(args[1]);
     args[2] = parseInt(args[2]);
     let index = bookSearch(args[1]);
-    if (index !== false) {
-        if (orderBook[index][2] !== args[3]) {
-            output("You try to set " + args[3] + " order on price of " + orderBook[index][2], line, true);
-        } else {
-            orderBook[index][1] += args[2]
-        }
-    } else {
-        orderBook.push([args[1], args[2], args[3]]);
-        orderBook.sort((a,b) => {return (a[0] > b[0]) ? 1 : ((b[0] > a[0]) ? -1 : 0);} );
-    }
+    if (index !== false) orderBook.splice(index, 1);
+
+    orderBook.push([args[1], args[2], args[3]]);
+    orderBook.sort((a, b) => {
+        return (a[0] > b[0]) ? 1 : ((b[0] > a[0]) ? -1 : 0);
+    });
+
 };
 
 q = args => { // Implements "q" command, returns responses on queries
@@ -111,7 +108,7 @@ q = args => { // Implements "q" command, returns responses on queries
         if (bookSearch(price) !== false) {
             output(orderBook[bookSearch(price)][1], line)
         } else {
-            output("There aren't orders with such a price", line, true)
+            output("There aren't orders with a such price", line, true)
         }
     }
 };
